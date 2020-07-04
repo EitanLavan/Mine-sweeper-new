@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Mine-Sweeper</title>
+  <style type="text/css">body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.button {
+  border: 1px solid black ;
+  background-color: orange;
+  height: 20px;
+ }
+
+ .mineCell {
+  background-color: burlywood;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  font-size: 15px;
+}
+
+.board {
+  border: 2px solid black;
+  border-radius: 4px;
+}</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div><div><div><table><tbody><tr><td>Height:</td><td><input type="text" value="10"></td></tr><tr><td>Width:</td><td><input type="text" value="10"></td></tr><tr><td>Mines:</td><td><input type="text" value="2"></td></tr></tbody></table></div></div><div><div><div>Flags left: 2</div></div><div><button>Superman</button></div><div><div class="game-done"><div class="message" style="color: red;">You loss the game!!!</div><button>Play Again</button></div></div><div><div><table class="board"><tbody><tr class="mapRow"><td><button class="mineCell" id="1" col="0" cellindex="1"><div>0</div></button></td><td><button class="mineCell" id="2" col="0" cellindex="2"><div>0</div></button></td><td><button class="mineCell" id="3" col="0" cellindex="3"><div>0</div></button></td><td><button class="mineCell" id="4" col="0" cellindex="4"><div>0</div></button></td><td><button class="mineCell" id="5" col="0" cellindex="5"><div>0</div></button></td><td><button class="mineCell" id="6" col="0" cellindex="6"><div>0</div></button></td><td><button class="mineCell" id="7" col="0" cellindex="7"><div>0</div></button></td><td><button class="mineCell" id="8" col="0" cellindex="8"><div>0</div></button></td><td><button class="mineCell" id="9" col="0" cellindex="9"><div>0</div></button></td><td><button class="mineCell" id="10" col="0" cellindex="10"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="11" col="0" cellindex="11"><div>0</div></button></td><td><button class="mineCell" id="12" col="0" cellindex="12"><div>0</div></button></td><td><button class="mineCell" id="13" col="0" cellindex="13"><div>0</div></button></td><td><button class="mineCell" id="14" col="0" cellindex="14"><div>0</div></button></td><td><button class="mineCell" id="15" col="0" cellindex="15"><div>0</div></button></td><td><button class="mineCell" id="16" col="0" cellindex="16"><div>0</div></button></td><td><button class="mineCell" id="17" col="0" cellindex="17"><div>0</div></button></td><td><button class="mineCell" id="18" col="0" cellindex="18"><div>0</div></button></td><td><button class="mineCell" id="19" col="0" cellindex="19"><div>0</div></button></td><td><button class="mineCell" id="20" col="0" cellindex="20"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="21" col="0" cellindex="21"><div>0</div></button></td><td><button class="mineCell" id="22" col="0" cellindex="22"><div>0</div></button></td><td><button class="mineCell" id="23" col="0" cellindex="23"><div>0</div></button></td><td><button class="mineCell" id="24" col="0" cellindex="24"><div>0</div></button></td><td><button class="mineCell" id="25" col="0" cellindex="25"><div>0</div></button></td><td><button class="mineCell" id="26" col="0" cellindex="26"><div>0</div></button></td><td><button class="mineCell" id="27" col="0" cellindex="27"><div>0</div></button></td><td><button class="mineCell" id="28" col="0" cellindex="28"><div>0</div></button></td><td><button class="mineCell" id="29" col="0" cellindex="29"><div>0</div></button></td><td><button class="mineCell" id="30" col="0" cellindex="30"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="31" col="0" cellindex="31"><div>0</div></button></td><td><button class="mineCell" id="32" col="0" cellindex="32"><div>0</div></button></td><td><button class="mineCell" id="33" col="0" cellindex="33"><div>0</div></button></td><td><button class="mineCell" id="34" col="0" cellindex="34"><div>0</div></button></td><td><button class="mineCell" id="35" col="0" cellindex="35"><div>0</div></button></td><td><button class="mineCell" id="36" col="0" cellindex="36"><div>0</div></button></td><td><button class="mineCell" id="37" col="0" cellindex="37"><div>0</div></button></td><td><button class="mineCell" id="38" col="0" cellindex="38"><div>0</div></button></td><td><button class="mineCell" id="39" col="0" cellindex="39"><div>0</div></button></td><td><button class="mineCell" id="40" col="0" cellindex="40"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="41" col="0" cellindex="41"><div>0</div></button></td><td><button class="mineCell" id="42" col="0" cellindex="42"><div>0</div></button></td><td><button class="mineCell" id="43" col="0" cellindex="43"><div>0</div></button></td><td><button class="mineCell" id="44" col="0" cellindex="44"><div>0</div></button></td><td><button class="mineCell" id="45" col="0" cellindex="45"><div>0</div></button></td><td><button class="mineCell" id="46" col="1" cellindex="46"><div>1</div></button></td><td><button class="mineCell" id="47" col="1" cellindex="47"><div>1</div></button></td><td><button class="mineCell" id="48" col="1" cellindex="48"><div>1</div></button></td><td><button class="mineCell" id="49" col="0" cellindex="49"><div>0</div></button></td><td><button class="mineCell" id="50" col="0" cellindex="50"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="51" col="0" cellindex="51"><div>0</div></button></td><td><button class="mineCell" id="52" col="0" cellindex="52"><div>0</div></button></td><td><button class="mineCell" id="53" col="0" cellindex="53"><div>0</div></button></td><td><button class="mineCell" id="54" col="0" cellindex="54"><div>0</div></button></td><td><button class="mineCell" id="55" col="0" cellindex="55"><div>0</div></button></td><td><button class="mineCell" id="56" col="1" cellindex="56"><div>1</div></button></td><td><button class="mineCell" id="57" col="☀" cellindex="57"><div>☀</div></button></td><td><button class="mineCell" id="58" col="1" cellindex="58"><div>1</div></button></td><td><button class="mineCell" id="59" col="0" cellindex="59"><div>0</div></button></td><td><button class="mineCell" id="60" col="0" cellindex="60"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="61" col="1" cellindex="61"><div>1</div></button></td><td><button class="mineCell" id="62" col="1" cellindex="62"><div>1</div></button></td><td><button class="mineCell" id="63" col="0" cellindex="63"><div>0</div></button></td><td><button class="mineCell" id="64" col="0" cellindex="64"><div>0</div></button></td><td><button class="mineCell" id="65" col="0" cellindex="65"><div>0</div></button></td><td><button class="mineCell" id="66" col="1" cellindex="66"><div>1</div></button></td><td><button class="mineCell" id="67" col="1" cellindex="67"><div>1</div></button></td><td><button class="mineCell" id="68" col="1" cellindex="68"><div>1</div></button></td><td><button class="mineCell" id="69" col="0" cellindex="69"><div>0</div></button></td><td><button class="mineCell" id="70" col="0" cellindex="70"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="71" col="☀" cellindex="71"><div>☀</div></button></td><td><button class="mineCell" id="72" col="1" cellindex="72"><div>1</div></button></td><td><button class="mineCell" id="73" col="0" cellindex="73"><div>0</div></button></td><td><button class="mineCell" id="74" col="0" cellindex="74"><div>0</div></button></td><td><button class="mineCell" id="75" col="0" cellindex="75"><div>0</div></button></td><td><button class="mineCell" id="76" col="0" cellindex="76"><div>0</div></button></td><td><button class="mineCell" id="77" col="0" cellindex="77"><div>0</div></button></td><td><button class="mineCell" id="78" col="0" cellindex="78"><div>0</div></button></td><td><button class="mineCell" id="79" col="0" cellindex="79"><div>0</div></button></td><td><button class="mineCell" id="80" col="0" cellindex="80"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="81" col="1" cellindex="81"><div>1</div></button></td><td><button class="mineCell" id="82" col="1" cellindex="82"><div>1</div></button></td><td><button class="mineCell" id="83" col="0" cellindex="83"><div>0</div></button></td><td><button class="mineCell" id="84" col="0" cellindex="84"><div>0</div></button></td><td><button class="mineCell" id="85" col="0" cellindex="85"><div>0</div></button></td><td><button class="mineCell" id="86" col="0" cellindex="86"><div>0</div></button></td><td><button class="mineCell" id="87" col="0" cellindex="87"><div>0</div></button></td><td><button class="mineCell" id="88" col="0" cellindex="88"><div>0</div></button></td><td><button class="mineCell" id="89" col="0" cellindex="89"><div>0</div></button></td><td><button class="mineCell" id="90" col="0" cellindex="90"><div>0</div></button></td></tr><tr class="mapRow"><td><button class="mineCell" id="91" col="0" cellindex="91"><div>0</div></button></td><td><button class="mineCell" id="92" col="0" cellindex="92"><div>0</div></button></td><td><button class="mineCell" id="93" col="0" cellindex="93"><div>0</div></button></td><td><button class="mineCell" id="94" col="0" cellindex="94"><div>0</div></button></td><td><button class="mineCell" id="95" col="0" cellindex="95"><div>0</div></button></td><td><button class="mineCell" id="96" col="0" cellindex="96"><div>0</div></button></td><td><button class="mineCell" id="97" col="0" cellindex="97"><div>0</div></button></td><td><button class="mineCell" id="98" col="0" cellindex="98"><div>0</div></button></td><td><button class="mineCell" id="99" col="0" cellindex="99"><div>0</div></button></td><td><button class="mineCell" id="100" col="0" cellindex="100"><div>0</div></button></td></tr></tbody></table></div></div>        </div><div>gameId: 1</div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./Mine-Sweeper_files/bundle.js.הורדה"></script><script src="./Mine-Sweeper_files/1.chunk.js.הורדה"></script><script src="./Mine-Sweeper_files/main.chunk.js.הורדה"></script><script src="./Mine-Sweeper_files/main.37237040af55b9cf1d5f.hot-update.js.הורדה"></script>
+
+</body></html>

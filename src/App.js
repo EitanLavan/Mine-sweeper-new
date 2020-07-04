@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//import './App.css';
 
-function App() {
+import MinesGame from './components/MinesGame';
+import MinesGameParameters from './components/MinesGameParameters';
+
+function App({ initialData }) {
+  const defaultHeight = () => {
+    return 10;
+  };
+
+  const [gameId, setGameId] = React.useState(1);
+  const [height, setHeight] = React.useState(defaultHeight);
+  const [width, setWidth] = React.useState(10);
+  const [mines, setMines] = React.useState(2);
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <MinesGameParameters key={gameId} height={height} setHeight={setHeight} width={width} setWidth={setWidth} mines={mines} setMines={setMines} />
+      </div>
+      <div>
+        <MinesGame key={gameId} height={height} width={width} mines={mines} startNewGame={() => setGameId(gameId + 1)} />
+      </div>
+      <div>
+        gameId: {gameId}
+      </div>
     </div>
   );
 }

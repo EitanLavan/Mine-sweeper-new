@@ -1,0 +1,935 @@
+(this["webpackJsonpmine-sweeper-new"] = this["webpackJsonpmine-sweeper-new"] || []).push([["main"],{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/index.css":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/index.css ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "body {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n\n.button {\n  border: 1px solid black ;\n  background-color: orange;\n  height: 20px;\n }\n\n .mineCell {\n  background-color: burlywood;\n  border: 2px solid black;\n  border-radius: 4px;\n  width: 30px;\n  height: 30px;\n  margin: 2px;\n  font-size: 15px;\n}\n\n.board {\n  border: 2px solid black;\n  border-radius: 4px;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./src/App.js":
+/*!********************!*\
+  !*** ./src/App.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_MinesGame__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/MinesGame */ "./src/components/MinesGame.js");
+/* harmony import */ var _components_MinesGameParameters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/MinesGameParameters */ "./src/components/MinesGameParameters.js");
+var _jsxFileName = "C:\\Users\\eitan\\mine-sweeper-new\\src\\App.js";
+ //import './App.css';
+
+
+
+
+function App({
+  initialData
+}) {
+  const defaultHeight = () => {
+    return 10;
+  };
+
+  const [gameId, setGameId] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(1);
+  const [height, setHeight] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(defaultHeight);
+  const [width, setWidth] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(10);
+  const [mines, setMines] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(2);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MinesGameParameters__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    key: gameId,
+    height: height,
+    setHeight: setHeight,
+    width: width,
+    setWidth: setWidth,
+    mines: mines,
+    setMines: setMines,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 9
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MinesGame__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    key: gameId,
+    height: height,
+    width: width,
+    mines: mines,
+    startNewGame: () => setGameId(gameId + 1),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 9
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 7
+    }
+  }, "gameId: ", gameId));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/components/MineBoard.js":
+/*!*************************************!*\
+  !*** ./src/components/MineBoard.js ***!
+  \*************************************/
+/*! exports provided: MineBoard, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MineBoard", function() { return MineBoard; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _MineCell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MineCell */ "./src/components/MineCell.js");
+var _jsxFileName = "C:\\Users\\eitan\\mine-sweeper-new\\src\\components\\MineBoard.js";
+
+
+function MineBoard(props) {
+  let cellIndex = 0;
+  let rowlIndex = 0;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "board",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 21
+    }
+  }, props.mineBoard.map(row => {
+    rowlIndex++;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+      className: "mapRow",
+      key: rowlIndex,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 33
+      }
+    }, row.map(col => {
+      cellIndex++;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MineCell__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        key: cellIndex,
+        col: col,
+        cellIndex: cellIndex,
+        gameStatus: props.gameStatus,
+        superman: props.superman,
+        flagsLeft: props.flagsLeft,
+        OnFlagsLeftChange: props.OnFlagsLeftChange,
+        onClick: props.onClick,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19,
+          columnNumber: 45
+        }
+      });
+    }));
+  })))));
+}
+;
+/* harmony default export */ __webpack_exports__["default"] = (MineBoard);
+
+/***/ }),
+
+/***/ "./src/components/MineCell.js":
+/*!************************************!*\
+  !*** ./src/components/MineCell.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\eitan\\mine-sweeper-new\\src\\components\\MineCell.js";
+
+
+const MineCell = props => {
+  const [val, setVal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState("");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "mineCell",
+    id: props.cellIndex,
+    key: props.cellIndex,
+    col: props.col,
+    cellindex: props.cellIndex,
+    onClick: event => {
+      if (props.gameStatus === "active") {
+        if (event.shiftKey) {
+          if (val !== "🚩" || val !== '') {
+            if (val === "🚩") {
+              setVal('');
+              props.OnFlagsLeftChange(1, props.cellIndex);
+            } else {
+              if (props.flagsLeft === 0) {
+                alert("You already use all flags!");
+              } else {
+                setVal("🚩");
+                props.OnFlagsLeftChange(-1, props.cellIndex);
+              }
+            }
+          }
+        } else {
+          if (val !== "🚩") {
+            if ({
+              val
+            } !== props.col) {
+              setVal(props.col);
+              props.onClick(props.col, {
+                val
+              }, props.cellIndex);
+            }
+          }
+        }
+      }
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 13
+    }
+  }, props.gameStatus === "active" && !props.superman ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 24
+    }
+  }, val) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 24
+    }
+  }, props.col)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MineCell);
+
+/***/ }),
+
+/***/ "./src/components/MinesGame.js":
+/*!*************************************!*\
+  !*** ./src/components/MinesGame.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _MineBoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MineBoard */ "./src/components/MineBoard.js");
+/* harmony import */ var _PlayAgain__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PlayAgain */ "./src/components/PlayAgain.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers */ "./src/helpers.js");
+var _jsxFileName = "C:\\Users\\eitan\\mine-sweeper-new\\src\\components\\MinesGame.js";
+
+
+
+
+
+function MinesGame(props) {
+  const [flagsLeft, setFlagsLeft] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(props.mines);
+  const [mineBoard, setmineBoard] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(_helpers__WEBPACK_IMPORTED_MODULE_3__["default"].CreateMap(props.height, props.width, props.mines));
+  const [gameStatus, setGameStatus] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState("active");
+  const [superman, setSuperman] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+
+  const onsupermanCheck = () => {
+    setSuperman(true);
+    setGameStatus('lost');
+  };
+
+  const resetGame = () => {
+    setGameStatus("active");
+    setFlagsLeft(props.mines);
+    setmineBoard(_helpers__WEBPACK_IMPORTED_MODULE_3__["default"].CreateMap(props.height, props.width, props.mines));
+    setSuperman(false);
+    props.startNewGame();
+  };
+
+  const onMineCellClick = (col, val, cellIndex) => {
+    if (val !== col) {
+      val = col;
+
+      if (val === '☀') {
+        setGameStatus("lost");
+      } else {
+        if (col === 0) {
+          _helpers__WEBPACK_IMPORTED_MODULE_3__["default"].ExpoesAllRelevantCells(Number(props.height), Number(props.width), cellIndex);
+        }
+
+        checkGameStatus(cellIndex);
+      }
+    }
+  };
+
+  const checkGameStatus = exposedCellIndex => {
+    let isWin = true;
+
+    for (let cellIndex = 1; cellIndex <= props.height * props.width; cellIndex++) {
+      if (exposedCellIndex !== cellIndex) {
+        let y = document.getElementById(cellIndex);
+
+        if (y.innerHTML === '<div></div>') {
+          isWin = false;
+          break;
+        }
+      }
+    }
+
+    if (isWin) {
+      setGameStatus('win');
+    }
+  };
+
+  const OnFlagsLeftChange = (isUsedFlag, cellIndex) => {
+    setFlagsLeft(flagsLeft + isUsedFlag);
+    checkGameStatus(cellIndex);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 17
+    }
+  }, "Flags left: ", flagsLeft)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: onsupermanCheck,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 17
+    }
+  }, "Superman")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PlayAgain__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    onClick: resetGame,
+    gameStatus: gameStatus,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
+      columnNumber: 17
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MineBoard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    mineBoard: mineBoard,
+    gameStatus: gameStatus,
+    flagsLeft: flagsLeft,
+    superman: superman,
+    onClick: onMineCellClick,
+    OnFlagsLeftChange: OnFlagsLeftChange,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74,
+      columnNumber: 17
+    }
+  })), "        ");
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MinesGame);
+
+/***/ }),
+
+/***/ "./src/components/MinesGameParameters.js":
+/*!***********************************************!*\
+  !*** ./src/components/MinesGameParameters.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\eitan\\mine-sweeper-new\\src\\components\\MinesGameParameters.js";
+
+
+const MinesGameParameters = props => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 25
+    }
+  }, "Height:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    value: props.height,
+    onChange: event => props.setHeight(event.target.value),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 29
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 25
+    }
+  }, "Width:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    value: props.width,
+    onChange: event => props.setWidth(event.target.value),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 29
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 25
+    }
+  }, "Mines:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    value: props.mines,
+    onChange: event => props.setMines(Number(event.target.value)),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 29
+    }
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MinesGameParameters);
+
+/***/ }),
+
+/***/ "./src/components/PlayAgain.js":
+/*!*************************************!*\
+  !*** ./src/components/PlayAgain.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\eitan\\mine-sweeper-new\\src\\components\\PlayAgain.js";
+
+
+const PlayAgain = props => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "game-done",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 5,
+    columnNumber: 9
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "message",
+  style: {
+    color: props.gameStatus === 'lost' ? 'red' : 'green'
+  },
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 6,
+    columnNumber: 13
+  }
+}, props.gameStatus === 'lost' ? 'You loss the game!!!' : props.gameStatus === 'win' ? 'You win the game!!!' : 'game is active!!!'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  onClick: props.onClick,
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11,
+    columnNumber: 13
+  }
+}, "Play Again")));
+
+/* harmony default export */ __webpack_exports__["default"] = (PlayAgain);
+
+/***/ }),
+
+/***/ "./src/helpers.js":
+/*!************************!*\
+  !*** ./src/helpers.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const helpers = {
+  CreateMap: (height, width, mines) => {
+    let map = new Array(height);
+
+    for (let heightIndex = 0; heightIndex < height; heightIndex++) {
+      map[heightIndex] = [new Array(width)];
+
+      for (let widthIndex = 0; widthIndex < width; widthIndex++) {
+        map[heightIndex][widthIndex] = 0;
+      }
+    }
+
+    for (let mineIndex = 0; mineIndex < mines; mineIndex++) {
+      let IsFoundPlace = false;
+
+      while (!IsFoundPlace) {
+        let mineHeightIndex = Math.floor(Math.random() * height);
+        let mineWidthIndex = Math.floor(Math.random() * width);
+
+        if (map[mineHeightIndex][mineWidthIndex] !== '☀' && mineHeightIndex <= height && mineWidthIndex <= width) {
+          map[mineHeightIndex][mineWidthIndex] = '☀';
+          if (mineHeightIndex > 0 && map[mineHeightIndex - 1][mineWidthIndex] !== '☀') map[mineHeightIndex - 1][mineWidthIndex]++;
+          if (mineHeightIndex + 1 < height && map[mineHeightIndex + 1][mineWidthIndex] !== '☀') map[mineHeightIndex + 1][mineWidthIndex]++;
+          if (mineWidthIndex > 0 && map[mineHeightIndex][mineWidthIndex - 1] !== '☀') map[mineHeightIndex][mineWidthIndex - 1]++;
+          if (mineWidthIndex + 1 < width && map[mineHeightIndex][mineWidthIndex + 1] !== '☀') map[mineHeightIndex][mineWidthIndex + 1]++;
+          if (mineHeightIndex > 0 && mineWidthIndex > 0 && map[mineHeightIndex - 1][mineWidthIndex - 1] !== '☀') map[mineHeightIndex - 1][mineWidthIndex - 1]++;
+          if (mineHeightIndex > 0 && mineWidthIndex + 1 < width && map[mineHeightIndex - 1][mineWidthIndex + 1] !== '☀') map[mineHeightIndex - 1][mineWidthIndex + 1]++;
+          if (mineHeightIndex + 1 < height && mineWidthIndex > 0 && map[mineHeightIndex + 1][mineWidthIndex - 1] !== '☀') map[mineHeightIndex + 1][mineWidthIndex - 1]++;
+          if (mineHeightIndex + 1 < height && mineWidthIndex + 1 < width && map[mineHeightIndex + 1][mineWidthIndex + 1] !== '☀') map[mineHeightIndex + 1][mineWidthIndex + 1]++;
+          IsFoundPlace = true;
+        }
+      }
+    }
+
+    return map;
+  },
+  ExpoesAllRelevantCells: (height, width, cellIndex) => {
+    try {
+      let neighbors = [];
+      neighbors.push(cellIndex);
+
+      while (neighbors.length > 0) {
+        let cellIndex = neighbors[0]; // row up
+
+        if (cellIndex > width) {
+          helpers.ExpoesRelevantCell(cellIndex - width, neighbors);
+        } // row down
+
+
+        if (cellIndex <= height * width) {
+          helpers.ExpoesRelevantCell(cellIndex + width, neighbors);
+        } // Cell left 
+
+
+        if (cellIndex % width !== 1) {
+          helpers.ExpoesRelevantCell(cellIndex - 1, neighbors);
+        } // Cell right 
+
+
+        if (cellIndex % width !== 0) {
+          helpers.ExpoesRelevantCell(cellIndex + 1, neighbors);
+        }
+
+        var filtered = neighbors.filter(function (value, index, arr) {
+          return value !== cellIndex;
+        });
+        neighbors = filtered;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  ExpoesRelevantCell: (cellIndex, neighbors) => {
+    let cellElement = document.getElementById(cellIndex);
+
+    try {
+      if (cellElement !== null) {
+        let cellElementData = cellElement.attributes[2].value;
+
+        if (cellElementData !== '☀') {
+          if (cellElement.innerHTML === '<div></div>') {
+            cellElement.innerHTML = '<div>' + cellElementData + '</div>';
+
+            if (cellElementData === '0') {
+              neighbors.push(cellIndex);
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (helpers);
+
+/***/ }),
+
+/***/ "./src/index.css":
+/*!***********************!*\
+  !*** ./src/index.css ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/index.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/index.css", function() {
+		var newContent = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/index.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./serviceWorker */ "./src/serviceWorker.js");
+var _jsxFileName = "C:\\Users\\eitan\\mine-sweeper-new\\src\\index.js";
+
+
+
+
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 8,
+    columnNumber: 3
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 9,
+    columnNumber: 5
+  }
+})), document.getElementById('root')); // If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+
+_serviceWorker__WEBPACK_IMPORTED_MODULE_4__["unregister"]();
+
+/***/ }),
+
+/***/ "./src/serviceWorker.js":
+/*!******************************!*\
+  !*** ./src/serviceWorker.js ***!
+  \******************************/
+/*! exports provided: register, unregister */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unregister", function() { return unregister; });
+// This optional code is used to register a service worker.
+// register() is not called by default.
+// This lets the app load faster on subsequent visits in production, and gives
+// it offline capabilities. However, it also means that developers (and users)
+// will only see deployed updates on subsequent visits to a page, after all the
+// existing tabs open on the page have been closed, since previously cached
+// resources are updated in the background.
+// To learn more about the benefits of this model and instructions on how to
+// opt-in, read https://bit.ly/CRA-PWA
+const isLocalhost = Boolean(window.location.hostname === 'localhost' || // [::1] is the IPv6 localhost address.
+window.location.hostname === '[::1]' || // 127.0.0.0/8 are considered localhost for IPv4.
+window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/));
+function register(config) {
+  if (false) {}
+}
+
+function registerValidSW(swUrl, config) {
+  navigator.serviceWorker.register(swUrl).then(registration => {
+    registration.onupdatefound = () => {
+      const installingWorker = registration.installing;
+
+      if (installingWorker == null) {
+        return;
+      }
+
+      installingWorker.onstatechange = () => {
+        if (installingWorker.state === 'installed') {
+          if (navigator.serviceWorker.controller) {
+            // At this point, the updated precached content has been fetched,
+            // but the previous service worker will still serve the older
+            // content until all client tabs are closed.
+            console.log('New content is available and will be used when all ' + 'tabs for this page are closed. See https://bit.ly/CRA-PWA.'); // Execute callback
+
+            if (config && config.onUpdate) {
+              config.onUpdate(registration);
+            }
+          } else {
+            // At this point, everything has been precached.
+            // It's the perfect time to display a
+            // "Content is cached for offline use." message.
+            console.log('Content is cached for offline use.'); // Execute callback
+
+            if (config && config.onSuccess) {
+              config.onSuccess(registration);
+            }
+          }
+        }
+      };
+    };
+  }).catch(error => {
+    console.error('Error during service worker registration:', error);
+  });
+}
+
+function checkValidServiceWorker(swUrl, config) {
+  // Check if the service worker can be found. If it can't reload the page.
+  fetch(swUrl, {
+    headers: {
+      'Service-Worker': 'script'
+    }
+  }).then(response => {
+    // Ensure service worker exists, and that we really are getting a JS file.
+    const contentType = response.headers.get('content-type');
+
+    if (response.status === 404 || contentType != null && contentType.indexOf('javascript') === -1) {
+      // No service worker found. Probably a different app. Reload the page.
+      navigator.serviceWorker.ready.then(registration => {
+        registration.unregister().then(() => {
+          window.location.reload();
+        });
+      });
+    } else {
+      // Service worker found. Proceed as normal.
+      registerValidSW(swUrl, config);
+    }
+  }).catch(() => {
+    console.log('No internet connection found. App is running in offline mode.');
+  });
+}
+
+function unregister() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(registration => {
+      registration.unregister();
+    }).catch(error => {
+      console.error(error.message);
+    });
+  }
+}
+
+/***/ }),
+
+/***/ 1:
+/*!**************************************************************************************************************!*\
+  !*** multi (webpack)/hot/dev-server.js ./node_modules/react-dev-utils/webpackHotDevClient.js ./src/index.js ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\Users\eitan\mine-sweeper-new\node_modules\webpack\hot\dev-server.js */"./node_modules/webpack/hot/dev-server.js");
+__webpack_require__(/*! C:\Users\eitan\mine-sweeper-new\node_modules\react-dev-utils\webpackHotDevClient.js */"./node_modules/react-dev-utils/webpackHotDevClient.js");
+module.exports = __webpack_require__(/*! C:\Users\eitan\mine-sweeper-new\src\index.js */"./src/index.js");
+
+
+/***/ })
+
+},[[1,"runtime-main",1]]]);
+//# sourceMappingURL=main.chunk.js.map
